@@ -50,7 +50,7 @@
     <component name="searchManager"
         type="edu.cmu.sphinx.decoder.search.SimpleBreadthFirstSearchManager">
         <property name="logMath" value="logMath"/>
-        <property name="linguist" value="flatLinguist"/>
+        <property name="linguist" value="lexTreeLinguist"/>
         <property name="pruner" value="trivialPruner"/>
         <property name="scorer" value="threadedScorer"/>
         <property name="activeListFactory" value="activeList"/>
@@ -125,7 +125,7 @@
     <component name="trigramModel" 
         type="edu.cmu.sphinx.linguist.language.ngram.SimpleNGramModel">
         <property name="location" 
-            value="/home/apurv/workspace/R2D2/lib/test.trigram.lm"/>
+            value="/Users/DeathStar/Documents/workspace/R2D2/lib/database.arpa"/>
         <property name="logMath" value="logMath"/>
         <property name="dictionary" value="dictionary"/>
         <property name="maxDepth" value="3"/>
@@ -138,14 +138,14 @@
     <!-- The Dictionary configuration                            -->
     <!-- ******************************************************** -->
 
-    <component name="dictionary"
-        type="edu.cmu.sphinx.linguist.dictionary.FastDictionary">
+    <component name="dictionary" 
+        type="edu.cmu.sphinx.linguist.dictionary.AllWordDictionary">
         <property name="dictionaryPath"
-	 value="resource:/WSJ_8gau_13dCep_8kHz_31mel_200Hz_3500Hz/dict/cmudict.0.6d"/>
-        <property name="fillerPath"
-	 value="resource:/WSJ_8gau_13dCep_8kHz_31mel_200Hz_3500Hz/noisedict"/>
+                  value="resource:/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/dict/cmudict.0.6d"/>
+        <property name="fillerPath" 
+	          value="resource:/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz/noisedict"/>
         <property name="addSilEndingPronunciation" value="false"/>
-        <property name="allowMissingWords" value="false"/>
+        <property name="wordReplacement" value="&lt;sil&gt;"/>
         <property name="unitManager" value="unitManager"/>
     </component>
 
@@ -194,7 +194,7 @@
     <!-- ******************************************************** -->
     <component name="epFrontEnd" type="edu.cmu.sphinx.frontend.FrontEnd">
         <propertylist name="pipeline">
-            <item>audioSource </item>
+            <item>microphone </item>
             <item>dataBlocker </item>
             <item>speechClassifier </item>
             <item>speechMarker </item>
@@ -244,6 +244,8 @@
 
     <component name="melFilterBank"
         type="edu.cmu.sphinx.frontend.frequencywarp.MelFrequencyFilterBank">
+		<property name="minimumFrequency" value="200"/>
+		<property name="maximumFrequency" value="3500"/>
     </component>
 
     <component name="dct"
@@ -258,6 +260,12 @@
     <component name="audioSource"
                type="edu.cmu.sphinx.frontend.util.StreamDataSource">
     </component>
+	
+	<component name="microphone"
+               type="edu.cmu.sphinx.frontend.util.Microphone">
+        <property name="closeBetweenUtterances" value="false"/>
+    </component>
+
 
 
     <!-- ******************************************************* -->

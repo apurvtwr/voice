@@ -58,13 +58,15 @@ public class ASRServer extends Thread{
 	
 	public void run() {
 		while(true) {
+			
+			
 			boolean stdout = false;
 			try {
-				System.out.println("[ASRServer] Listening ... ");
+				System.out.println("[R2D2.ASRServer] Listening ... ");
 				String result = recognizer.recognize().getTimedBestResult(true, true);
 				if(results.size() > RESULTS_SIZE) {
 					stdout = true;
-					System.out.println("[ASRServer] Too many results in queue. Waiting for queue to get empty");
+					System.out.println("[R2D2.ASRServer] Too many results in queue. Waiting for queue to get empty");
 				}
 				while(results.size() > RESULTS_SIZE) {} ;
 				
@@ -74,7 +76,7 @@ public class ASRServer extends Thread{
 					stdout = false;
 				}
 			} catch (Exception e) {
-				System.out.println("[ASRServer]" + e.getMessage());
+				System.out.println("[R2D2.ASRServer]" + e.getMessage());
 				break;				
 			}
 		}

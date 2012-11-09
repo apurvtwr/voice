@@ -114,6 +114,14 @@ public class SimpleNGramModel implements LanguageModel, BackoffLanguageModel {
             }
         }
     }
+    
+    /**
+     * @throws MalformedURLException 
+     * 
+     */
+    public void setLanguageModel(String path) throws MalformedURLException {
+    	this.urlLocation = new URL("file:" + path);
+    }
 
 
     /*

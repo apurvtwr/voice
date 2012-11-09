@@ -18,8 +18,10 @@
 	<path id="libs">
 	        <pathelement path="${bin_dir}"/>
 		<pathelement path="${lib_dir}/WSJ_8gau_13dCep_8kHz_31mel_200Hz_3500Hz.jar"/>
+		<pathelement path="${lib_dir}/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz.jar"/>
 		<pathelement path="${lib_dir}/jsapi.jar"/>
 		<pathelement path="${lib_dir}/en_us.jar"/>
+		<pathelement path="${lib_dir}/freetts.jar"/>
 	</path>
 	
 	<target name="all"

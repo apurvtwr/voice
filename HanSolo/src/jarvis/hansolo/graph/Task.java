@@ -96,7 +96,7 @@ public class Task {
 		
 		while(var.getValue().compareToIgnoreCase("$NDV$") == 0) {}
 		
-		//System.out.println(var);
+		System.out.println(var);
 	}
 	
 	private boolean ifNumber(String input) {

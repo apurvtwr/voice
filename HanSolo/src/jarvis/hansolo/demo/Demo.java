@@ -66,7 +66,7 @@ public class Demo {
 		Task t4 = new Task(TaskType.SET, 3);
 		Task t5 = new Task(TaskType.SET, 4);
 		Task t6 = new Task(TaskType.DEFAULT, -1);
-		TaskNode root = new TaskNode(0, varMap, t1, "", "Hello. This is JARVIS. How may I help you");
+		TaskNode root = new TaskNode(0, varMap, t1, "", "Hello. This is JARVIS. How may i help you");
 		TaskNode n1 = new TaskNode(1, varMap, t2, "$1$=Raxa", "Welcome to Raxa");
 		TaskNode n2 = new TaskNode(2, varMap, t3, "$1$=Raxa", "Let's fill out your information");
 		TaskNode n3 = new TaskNode(3, varMap, t4, "$1$=Raxa $2$!$NDV$", "");
@@ -84,6 +84,8 @@ public class Demo {
 		n2.addSuccessor(n3);
 		n3.addSuccessor(n4);
 		n3.addSuccessor(n5);
+		n5.addSuccessor(root);
+		n4.addSuccessor(root);
 		
 		msgHandle.getPublisher().sendInfo("Dialog graph prepared", 1, 1);
 		msgHandle.getPublisher().sendInfo("HANSOLO Ready", 1, 1);
