@@ -194,7 +194,8 @@
     <!-- ******************************************************** -->
     <component name="epFrontEnd" type="edu.cmu.sphinx.frontend.FrontEnd">
         <propertylist name="pipeline">
-            <item>microphone </item>
+            <!-- item>microphone </item -->
+		<item> audioSource </item>
             <item>dataBlocker </item>
             <item>speechClassifier </item>
             <item>speechMarker </item>
