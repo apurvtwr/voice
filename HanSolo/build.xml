@@ -18,6 +18,12 @@
 	<path id="libs">
 	        <pathelement path="${bin_dir}"/>
 		<pathelement path="${lib_dir}/leia.jar"/>
+        <pathelement path="${lib_dir}/commons-lang3-3.0.1.jar"/>
+        <pathelement path="${lib_dir}/json-org.jar"/>
+        <pathelement path="${lib_dir}/OpenMRSRestLib.jar"/>
+        <pathelement path="${lib_dir}/org.restlet.ext.json.jar"/>
+        <pathelement path="${lib_dir}/org.restlet.jar"/>
+        <pathelement path="${lib_dir}/mrsInterface.jar"/>
 	</path>
 	
 	<target name="all"

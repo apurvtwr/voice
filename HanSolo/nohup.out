@@ -1,0 +1,85 @@
+Buildfile: /home/apurv/Desktop/Jarvis/HanSolo/build.xml
+
+compile:
+    [javac] Compiling 10 source files to /home/apurv/Desktop/Jarvis/HanSolo/build
+    [javac] /home/apurv/Desktop/Jarvis/HanSolo/src/jarvis/hansolo/demo/Demo.java
+    [javac] /home/apurv/Desktop/Jarvis/HanSolo/src/jarvis/hansolo/graph/Task.java
+    [javac] /home/apurv/Desktop/Jarvis/HanSolo/src/jarvis/hansolo/graph/TaskNode.java
+    [javac] /home/apurv/Desktop/Jarvis/HanSolo/src/jarvis/hansolo/graph/TaskType.java
+    [javac] /home/apurv/Desktop/Jarvis/HanSolo/src/jarvis/hansolo/tools/taskmanager/XMLDialogTaskLoader.java
+    [javac] /home/apurv/Desktop/Jarvis/HanSolo/src/jarvis/hansolo/utils/tools/DialogTaskReader.java
+    [javac] /home/apurv/Desktop/Jarvis/HanSolo/src/jarvis/hansolo/utils/tools/DialogTaskWriter.java
+    [javac] /home/apurv/Desktop/Jarvis/HanSolo/src/jarvis/hansolo/utils/tools/Scope.java
+    [javac] /home/apurv/Desktop/Jarvis/HanSolo/src/jarvis/hansolo/utils/tools/Variable.java
+    [javac] /home/apurv/Desktop/Jarvis/HanSolo/src/jarvis/hansolo/utils/tools/VariableType.java
+      [jar] Building jar: /home/apurv/Desktop/Jarvis/HanSolo/bin/solo.jar
+
+run:
+     [java]  PUBLISHER 			:		23
+     [java]  CONSUMER TYPE 		:		SIPSERVER(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868762686
+     [java]  DATA 			:		HANSOLO START
+     [java] [HanSolo] Command:START
+     [java]  PUBLISHER 			:		2
+     [java]  CONSUMER TYPE 		:		TTS(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868762804
+     [java]  DATA 			:		HANSOLO NEXT
+     [java] [HanSolo] Command:NEXT
+     [java]  PUBLISHER 			:		2
+     [java]  CONSUMER TYPE 		:		TTS(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868762828
+     [java]  DATA 			:		HANSOLO NEXT
+     [java] [HanSolo] Command:NEXT
+     [java]  PUBLISHER 			:		3
+     [java]  CONSUMER TYPE 		:		R2D2(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868770447
+     [java]  DATA 			:		HANSOLO SET NAME rita
+     [java] [HanSolo] Command:SET
+     [java] var: NAME
+     [java] Value: rita
+     [java] Var: NAME  value :rita
+     [java] Dec 07, 2012 3:26:06 AM org.restlet.engine.http.connector.HttpClientHelper start
+     [java] INFO: Starting the default HTTP client
+     [java]  PUBLISHER 			:		2
+     [java]  CONSUMER TYPE 		:		TTS(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868767856
+     [java]  DATA 			:		HANSOLO NEXT
+     [java] [HanSolo] Command:NEXT
+     [java]  PUBLISHER 			:		2
+     [java]  CONSUMER TYPE 		:		TTS(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868767906
+     [java]  DATA 			:		HANSOLO NEXT
+     [java] [HanSolo] Command:NEXT
+     [java]  PUBLISHER 			:		2
+     [java]  CONSUMER TYPE 		:		TTS(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868767932
+     [java]  DATA 			:		HANSOLO NEXT
+     [java] [HanSolo] Command:NEXT
+     [java]  PUBLISHER 			:		2
+     [java]  CONSUMER TYPE 		:		TTS(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868767958
+     [java]  DATA 			:		HANSOLO NEXT
+     [java] [HanSolo] Command:NEXT
+     [java]  PUBLISHER 			:		23
+     [java]  CONSUMER TYPE 		:		SIPSERVER(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868792176
+     [java]  DATA 			:		HANSOLO STOP
+     [java] [HanSolo] Command:STOP

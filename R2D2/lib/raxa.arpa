@@ -1,0 +1,160 @@
+#############################################################################
+## Copyright (c) 1996, Carnegie Mellon University, Cambridge University,
+## Ronald Rosenfeld and Philip Clarkson
+## Version 3, Copyright (c) 2006, Carnegie Mellon University 
+## Contributors includes Wen Xu, Ananlada Chotimongkol, 
+## David Huggins-Daines, Arthur Chan and Alan Black 
+#############################################################################
+=============================================================================
+===============  This file was produced by the CMU-Cambridge  ===============
+===============     Statistical Language Modeling Toolkit     ===============
+=============================================================================
+This is a 3-gram language model, based on a vocabulary of 20 words,
+  which begins "0", "1", "2"...
+This is a CLOSED-vocabulary model
+  (OOVs eliminated from training data and are forbidden in test data)
+Good-Turing discounting was applied.
+1-gram frequency of frequency : 16 
+2-gram frequency of frequency : 30 2 0 0 0 0 0 
+3-gram frequency of frequency : 43 3 0 0 0 0 0 
+1-gram discounting ratios : 0.94 
+2-gram discounting ratios : 0.00 
+3-gram discounting ratios : 0.00 
+This file is in the ARPA-standard format introduced by Doug Paul.
+
+p(wd3|wd1,wd2)= if(trigram exists)           p_3(wd1,wd2,wd3)
+                else if(bigram w1,w2 exists) bo_wt_2(w1,w2)*p(wd3|wd2)
+                else                         p(wd3|w2)
+
+p(wd2|wd1)= if(bigram exists) p_2(wd1,wd2)
+            else              bo_wt_1(wd1)*p_1(wd2)
+
+All probs and back-off weights (bo_wt) are given in log10 form.
+
+Data formats:
+
+Beginning of data mark: \data\
+ngram 1=nr            # number of 1-grams
+ngram 2=nr            # number of 2-grams
+ngram 3=nr            # number of 3-grams
+
+\1-grams:
+p_1     wd_1 bo_wt_1
+\2-grams:
+p_2     wd_1 wd_2 bo_wt_2
+\3-grams:
+p_3     wd_1 wd_2 wd_3 
+
+end of data mark: \end\
+
+\data\
+ngram 1=20
+ngram 2=33
+ngram 3=46
+
+\1-grams:
+-1.7165 0	0.0000
+-1.7165 1	0.1587
+-1.7165 2	0.1587
+-1.7165 3	0.1587
+-1.7165 4	0.1587
+-1.7165 5	0.1587
+-1.7165 6	0.1587
+-1.3892 7	-0.4433
+-1.7165 8	0.1587
+-1.7165 9	0.1587
+-0.5141 </s>	-1.0324
+-0.4861 <s>	0.0767
+-1.7165 APURV	0.1587
+-1.7165 BHIKSHA	0.1587
+-1.7165 RITA	0.1587
+-1.7165 SHURO	0.1587
+-1.7165 SURAJIT	0.1587
+-1.7165 file	0.0084
+-1.7165 name:	0.0084
+-1.7165 raxa.train	0.1717
+
+\2-grams:
+-99.9990 1 </s> 1.2041
+-99.9990 2 </s> 1.2041
+-99.9990 3 </s> 1.2041
+-99.9990 4 </s> 1.2041
+-99.9990 5 </s> 1.2041
+-99.9990 6 </s> 1.2041
+-0.1249 7 </s> 0.7270
+-99.9990 8 </s> 1.2041
+-99.9990 9 </s> 1.2041
+-0.0280 </s> <s> 0.0222
+-99.9990 <s> 0 0.1587
+-99.9990 <s> 1 0.0000
+-99.9990 <s> 2 0.0000
+-99.9990 <s> 3 0.0000
+-99.9990 <s> 4 0.0000
+-99.9990 <s> 5 0.0000
+-99.9990 <s> 6 0.0000
+-0.7533 <s> 7 0.1249
+-99.9990 <s> 8 0.0000
+-99.9990 <s> 9 0.0000
+-99.9990 <s> APURV 0.0000
+-99.9990 <s> BHIKSHA 0.0000
+-99.9990 <s> RITA 0.0000
+-99.9990 <s> SHURO 0.0000
+-99.9990 <s> SURAJIT 0.0000
+-99.9990 APURV </s> 1.2041
+-99.9990 BHIKSHA </s> 1.2041
+-99.9990 RITA </s> 1.2041
+-99.9990 SHURO </s> 1.2041
+-99.9990 SURAJIT </s> 1.2041
+-99.9990 file name: 0.0000
+-99.9990 name: raxa.train 0.0000
+-99.9990 raxa.train <s> 0.0000
+
+\3-grams:
+-99.9990 1 </s> <s> 
+-99.9990 2 </s> <s> 
+-99.9990 3 </s> <s> 
+-99.9990 4 </s> <s> 
+-99.9990 5 </s> <s> 
+-99.9990 6 </s> <s> 
+-0.1761 7 </s> <s> 
+-99.9990 8 </s> <s> 
+-99.9990 9 </s> <s> 
+-99.9990 </s> <s> 0 
+-99.9990 </s> <s> 1 
+-99.9990 </s> <s> 2 
+-99.9990 </s> <s> 3 
+-99.9990 </s> <s> 4 
+-99.9990 </s> <s> 5 
+-99.9990 </s> <s> 6 
+-0.8751 </s> <s> 7 
+-99.9990 </s> <s> 8 
+-99.9990 </s> <s> 9 
+-99.9990 </s> <s> BHIKSHA 
+-99.9990 </s> <s> RITA 
+-99.9990 </s> <s> SHURO 
+-99.9990 </s> <s> SURAJIT 
+-99.9990 <s> 0 </s> 
+-99.9990 <s> 1 </s> 
+-99.9990 <s> 2 </s> 
+-99.9990 <s> 3 </s> 
+-99.9990 <s> 4 </s> 
+-99.9990 <s> 5 </s> 
+-99.9990 <s> 6 </s> 
+-0.1761 <s> 7 </s> 
+-99.9990 <s> 8 </s> 
+-99.9990 <s> 9 </s> 
+-99.9990 <s> APURV </s> 
+-99.9990 <s> BHIKSHA </s> 
+-99.9990 <s> RITA </s> 
+-99.9990 <s> SHURO </s> 
+-99.9990 <s> SURAJIT </s> 
+-99.9990 APURV </s> <s> 
+-99.9990 BHIKSHA </s> <s> 
+-99.9990 RITA </s> <s> 
+-99.9990 SHURO </s> <s> 
+-99.9990 SURAJIT </s> <s> 
+-99.9990 file name: raxa.train 
+-99.9990 name: raxa.train <s> 
+-99.9990 raxa.train <s> APURV 
+
+\end\

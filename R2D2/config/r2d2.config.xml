@@ -50,7 +50,7 @@
     <component name="searchManager"
         type="edu.cmu.sphinx.decoder.search.SimpleBreadthFirstSearchManager">
         <property name="logMath" value="logMath"/>
-        <property name="linguist" value="lexTreeLinguist"/>
+        <property name="linguist" value="flatLinguist"/>
         <property name="pruner" value="trivialPruner"/>
         <property name="scorer" value="threadedScorer"/>
         <property name="activeListFactory" value="activeList"/>
@@ -125,7 +125,7 @@
     <component name="trigramModel" 
         type="edu.cmu.sphinx.linguist.language.ngram.SimpleNGramModel">
         <property name="location" 
-            value="./lib/database.arpa"/>
+            value="./lib/name.arpa"/>
         <property name="logMath" value="logMath"/>
         <property name="dictionary" value="dictionary"/>
         <property name="maxDepth" value="3"/>

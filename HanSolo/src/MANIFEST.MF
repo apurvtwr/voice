@@ -1,2 +1,2 @@
 Main-Class: jarvis.hansolo.demo.Demo
-Class-Path: ../lib/leia.jar
+Class-Path: ../lib/leia.jar ../lib/commons-lang3-3.0.1.jar ../lib/json-org.jar ../lib/OpenMRSRestLib.jar ../lib/org.restlet.ext.json.jar ../lib/org.restlet.jar ../lib/mrsInterface.jar

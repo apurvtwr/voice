@@ -1,0 +1,122 @@
+Buildfile: /home/apurv/Desktop/Jarvis/Talker/build.xml
+
+compile:
+
+run:
+     [java] [TextToSpeechServer] Invoking new TTS server for this connection ... 
+     [java] System property "mbrola.base" is undefined.  Will not use MBROLA voices.
+     [java] [TextToSpeechServer] HandleSocketClient started for this client
+     [java]  PUBLISHER 			:		23
+     [java]  CONSUMER TYPE 		:		SIPSERVER(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		0
+     [java]  MESSAGE TYPE 		:		(Type : INFO , Code: 3 )
+     [java]  TIME STAMP 		:		1354868762685
+     [java]  DATA 			:		SIPSERVER New Caller
+     [java]  PUBLISHER 			:		23
+     [java]  CONSUMER TYPE 		:		SIPSERVER(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868762686
+     [java]  DATA 			:		HANSOLO START
+     [java]  PUBLISHER 			:		11
+     [java]  CONSUMER TYPE 		:		HANSOLO(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868762698
+     [java]  DATA 			:		C3PO_SPEAK Welcome to Raxa Medicine Reminder service
+     [java] Speaking:Welcome to Raxa Medicine Reminder service 
+     [java]  PUBLISHER 			:		11
+     [java]  CONSUMER TYPE 		:		HANSOLO(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868762701
+     [java]  DATA 			:		C3PO_SPEAK Please tell me your name
+     [java] Speaking:Please tell me your name 
+     [java]  PUBLISHER 			:		11
+     [java]  CONSUMER TYPE 		:		HANSOLO(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868762702
+     [java]  DATA 			:		R2D2 RECOGNIZE NAME
+     [java]  PUBLISHER 			:		2
+     [java]  CONSUMER TYPE 		:		TTS(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868762804
+     [java]  DATA 			:		HANSOLO NEXT
+     [java]  PUBLISHER 			:		2
+     [java]  CONSUMER TYPE 		:		TTS(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868762828
+     [java]  DATA 			:		HANSOLO NEXT
+     [java]  PUBLISHER 			:		3
+     [java]  CONSUMER TYPE 		:		R2D2(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868770447
+     [java]  DATA 			:		HANSOLO SET NAME rita
+     [java]  PUBLISHER 			:		11
+     [java]  CONSUMER TYPE 		:		HANSOLO(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868767794
+     [java]  DATA 			:		C3PO_SPEAK Hello rita . Your today's prescriptions are
+     [java] Speaking:Hello rita . Your today's prescriptions are 
+     [java]  PUBLISHER 			:		11
+     [java]  CONSUMER TYPE 		:		HANSOLO(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868767794
+     [java]  DATA 			:		C3PO_SPEAK A dose of ACETAZOLAMIDE which started on 2012
+     [java] Speaking:A dose of ACETAZOLAMIDE which started on 2012 
+     [java]  PUBLISHER 			:		11
+     [java]  CONSUMER TYPE 		:		HANSOLO(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868767795
+     [java]  DATA 			:		C3PO_SPEAK take it regularly .
+     [java] Speaking:take it regularly . 
+     [java]  PUBLISHER 			:		11
+     [java]  CONSUMER TYPE 		:		HANSOLO(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868767795
+     [java]  DATA 			:		C3PO_SPEAK Thank you. have a nice day
+     [java] Speaking:Thank you. have a nice day 
+     [java]  PUBLISHER 			:		2
+     [java]  CONSUMER TYPE 		:		TTS(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868767856
+     [java]  DATA 			:		HANSOLO NEXT
+     [java]  PUBLISHER 			:		2
+     [java]  CONSUMER TYPE 		:		TTS(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868767906
+     [java]  DATA 			:		HANSOLO NEXT
+     [java]  PUBLISHER 			:		2
+     [java]  CONSUMER TYPE 		:		TTS(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868767932
+     [java]  DATA 			:		HANSOLO NEXT
+     [java]  PUBLISHER 			:		2
+     [java]  CONSUMER TYPE 		:		TTS(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868767958
+     [java]  DATA 			:		HANSOLO NEXT
+     [java]  PUBLISHER 			:		23
+     [java]  CONSUMER TYPE 		:		SIPSERVER(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		0
+     [java]  MESSAGE TYPE 		:		(Type : INFO , Code: 3 )
+     [java]  TIME STAMP 		:		1354868792174
+     [java]  DATA 			:		SIPSERVER Caller Hungup
+     [java]  PUBLISHER 			:		23
+     [java]  CONSUMER TYPE 		:		SIPSERVER(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868792176
+     [java]  DATA 			:		HANSOLO STOP

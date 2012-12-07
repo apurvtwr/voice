@@ -6,4 +6,4 @@
 
 grammar hello;
 
-public <greet> = (Darapok | Daal) ( Daalar  | Daakiyaa );
+public <greet> = (Rita | Bhiksha | John );

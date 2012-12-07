@@ -70,8 +70,9 @@ public class Subscriber extends Observable{
 						// Surprisingly it sometimes is null?? 
 						
 						if (!( obj instanceof Message)) {
-							System.out.println("************** UNEXPECTED *****************");
-							System.out.println(obj);
+							//System.out.println("************** UNEXPECTED *****************");
+							//System.out.println("Object:" + obj);
+							//System.out.println("Class: " + obj.getClass());
 						} else {
 							Message message = (Message) obj;
 							setChanged();
@@ -83,8 +84,8 @@ public class Subscriber extends Observable{
 					}
 				} catch (Exception e) {
 					// Report any sort of Exception to stdOut
-					System.out.println("Why was the input from Stream:" + obj);
-					e.printStackTrace();
+					//System.out.println("Why was the input from Stream:" + obj);
+					
 				} 
 			}
 		}

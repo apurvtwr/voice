@@ -84,7 +84,7 @@ public class Task {
 			gram += iter.next();
 			count++;
 		}
-		msgHandle.getPublisher().sendAction("R2D2_RECOGNIZE " + gram , 1, 1);
+		msgHandle.getPublisher().sendAction("R2D2 RECOGNIZE " + gram , 1, 1);
 		
 		// inform TTS to speak desired question
 		String question = var.getQuestion();

@@ -1,0 +1,14 @@
+Buildfile: /home/vader/workspace/R2D2/build.xml
+
+compile:
+
+run:
+     [java]  PUBLISHER 			:		11
+     [java]  CONSUMER TYPE 		:		HANSOLO(ID: 1, PRIORITY: 0)
+     [java]  PRIORITY 			:		1
+     [java]  MESSAGE TYPE 		:		(Type : ACTION , Code: 2 )
+     [java]  TIME STAMP 		:		1354868762702
+     [java]  DATA 			:		R2D2 RECOGNIZE NAME
+     [java] [R2D2] Command:RECOGNIZE
+     [java] [R2D2.ASRServer] Listening ... 
+     [java] Recognized: rita

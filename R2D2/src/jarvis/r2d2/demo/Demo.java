@@ -13,18 +13,17 @@
 
 package jarvis.r2d2.demo;
 
+
+
 import jarvis.leia.stream.MessageHandler;
 import jarvis.leia.stream.Publisher;
 
-import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import edu.cmu.sphinx.frontend.util.Microphone;
-import edu.cmu.sphinx.linguist.language.ngram.SimpleNGramModel;
-import edu.cmu.sphinx.recognizer.Recognizer;
-import edu.cmu.sphinx.result.Result;
-import edu.cmu.sphinx.util.props.ConfigurationManager;
+import java.util.Observable;
+import java.util.Observer;
+
 
 public class Demo {
 	
@@ -35,22 +34,15 @@ public class Demo {
 		
 		ServerSocket controlServer = new ServerSocket(9990);
 		ServerSocket dataServer = new ServerSocket(9991);
-		while(true) {
-			Socket controlSocket = controlServer.accept();
-			Socket dataSocket = dataServer.accept();
-			ASRServer asrServer = new ASRServer(dataSocket.getInputStream());
-			asrServer.start();
-			System.out.println("[R2D2] Start ..");
-			while(!dataSocket.isClosed() && !controlSocket.isClosed()) {
-				String result = asrServer.recognize();
-
-	            if (result != null) {
-	                System.out.println("You said: " + result + '\n');
-	                publisher.sendAction("HANSOLO_SET " + result, 1, 1);
-	            } 
-			}		
-			
-		}
+		
+		Socket controlSocket = controlServer.accept();
+		Socket dataSocket = dataServer.accept();
+		ASRServer asrServer = new ASRServer(dataSocket.getInputStream(), publisher);
+		messageHandler.getSubscriber().addObserver(asrServer);
+		
+		// all that remains is to wait ....
+		while(true) {}
 	}
 
 }
+

@@ -13,9 +13,13 @@ package jarvis.hansolo.demo;
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.StringTokenizer;
+
+import org.json.JSONException;
 
 import jarvis.hansolo.graph.Task;
 import jarvis.hansolo.graph.TaskNode;
@@ -28,12 +32,14 @@ import jarvis.leia.message.MessageType;
 import jarvis.leia.stream.MessageHandler;
 import jarvis.leia.stream.Publisher;
 import jarvis.leia.stream.Subscriber;
+import jarvis.mrsinterface.MRSInterface;
 
 public class Demo implements Observer{
 	
 	private MessageHandler msgHandle;
 	private volatile boolean CONTINUE_DIALOG; // is a variable to reset the dialog
 	private volatile boolean NEXT;		// ensures that the dialog does not proceed to the next step until asked to do so
+	private HashMap<String, String> variables;
 	
 	public Demo() throws UnknownHostException, IOException {
 		this.msgHandle = new 
@@ -41,6 +47,7 @@ public class Demo implements Observer{
 		this.msgHandle.getSubscriber().addObserver(this);
 		this.CONTINUE_DIALOG = false;
 		this.NEXT = false;
+		this.variables = new HashMap<String, String>();
 	}
 	
 	private MessageHandler getMessageHandler() {
@@ -69,90 +76,36 @@ public class Demo implements Observer{
 		MessageHandler msgHandle = server.getMessageHandler();
 		while(true) {
 			//System.out.println("CONTINUE Dialog: " + server.getContinueDialog());
-			if(server.getContinueDialog())
+			if(server.getContinueDialog()) {
+				server.CONTINUE_DIALOG = false;
 				routine(msgHandle, server);
+			}
 		}
 		 
 	}
 	
-	public static void routine(MessageHandler msgHandle, Demo server) throws UnknownHostException, IOException{
-		
-		
-		/** 
-		 * Define variables
-		 */
-		Variable var1 = new Variable(1, "COMPANY_NAME", VariableType.STR);		
-		var1.setValue("Raxa");
-		Variable var2 = new Variable(2, "USER_NAME", VariableType.STR);
-		var2.setQuestion("Can I know your name please");
-		var2.setConfirmation("Hello $val");
-		var2.setPossibleValues("++NAME++");
-		Variable var3 = new Variable(3, "USER_AGE", VariableType.INT);
-		var3.setQuestion("What is your age ");
-		var3.setConfirmation("I have your age as $val" );
-		var3.setPossibleValues("++INT++");
-		Variable var4 = new Variable(4, "USER_GENDER", VariableType.STR);
-		var4.setQuestion("What is your gender ");
-		var4.setConfirmation("So you are a $val");
-		var4.setPossibleValues("Male");
-		var4.setPossibleValues("Female");
-		
-		/**
-		 * put variables in a hashmap
-		 */
-		HashMap<Integer, Variable> varMap = new HashMap<Integer, Variable>();
-		varMap.put(1, var1);
-		varMap.put(2, var2);
-		varMap.put(3, var3);
-		varMap.put(4, var4);
-		
-		/**
-		 * Define task nodes
-		 */
-		Task t1 = new Task(TaskType.DEFAULT, -1);
-		Task t2 = new Task(TaskType.DEFAULT, -1);
-		Task t3 = new Task(TaskType.SET, 2);
-		Task t4 = new Task(TaskType.SET, 3);
-		Task t5 = new Task(TaskType.SET, 4);
-		Task t6 = new Task(TaskType.DEFAULT, -1);
-		TaskNode root = new TaskNode(0, varMap, t1, "", "Hello. This is JARVIS");
-		TaskNode n1 = new TaskNode(1, varMap, t2, "$1$=Raxa", "Welcome to Raxa");
-		TaskNode n2 = new TaskNode(2, varMap, t3, "$1$=Raxa", "Let's fill out a medical information form");
-		TaskNode n3 = new TaskNode(3, varMap, t4, "$1$=Raxa $2$!$NDV$", "");
-		TaskNode n4 = new TaskNode(4, varMap, t5, "$2$!$NDV$ $3$=$NDV$", "You seem to be a girl, anyway");
-		TaskNode n5 = new TaskNode(5, varMap, t5, "$2$!$NDV$ $3$!$NDV$", "Thanks for giving me your age");
-		// TaskNode t6 = new TaskNode(6, varMap, t6, "$1$=Raxa $2$$$NDV$ $4$!$NDV$", "Thank you. I have your information. We will get back to you soon");
-		
-		msgHandle.getPublisher().sendInfo("Defined dialog task nodes. Generating dialog task graph", 1, 0);
-		
-		/**
-		 * Define Task topology
-		 */
-		root.addSuccessor(n1);
-		n1.addSuccessor(n2);
-		n2.addSuccessor(n3);
-		n3.addSuccessor(n4);
-		n3.addSuccessor(n5);
-		
-		msgHandle.getPublisher().sendInfo("Dialog graph prepared", 1, 1);
-		msgHandle.getPublisher().sendInfo("HANSOLO Ready", 1, 1);
-		
-		/**
-		 * Execute task
-		 */
-		TaskNode node = root;
-		while(node != null && server.getContinueDialog()){
-			node.performTask(msgHandle);
-			if(node.getTask().getType().compareTo(TaskType.DEFAULT) == 0)  {
-				
-				server.setNext(false);
-			}
-			node = node.nextTask();
+	public static void routine(MessageHandler msgHandle, Demo server) 
+			throws UnknownHostException, IOException, JSONException {
+		msgHandle.getPublisher().sendAction("C3PO_SPEAK Welcome to Raxa Medicine Reminder service", 1, 1);
+		msgHandle.getPublisher().sendAction("C3PO_SPEAK Please tell me your name", 1, 1);
+		msgHandle.getPublisher().sendAction("R2D2 RECOGNIZE NAME", 1, 1);
+		String name = server.variables.remove("NAME");
+		while(name == null) {
+			name = server.variables.remove("NAME");
 		}
 		
-		msgHandle.getPublisher().sendInfo("Dialog complete...", 1, 1);
-		msgHandle.getPublisher().sendAction("ALL SHUTDOWN", 1, 1);
+		MRSInterface mrsInterface = new MRSInterface();
+		LinkedList<String> prompts = mrsInterface.getPrescription(name);
+		
+		Iterator<String> iter = prompts.iterator();
+		while(iter.hasNext()) {
+			msgHandle.getPublisher().sendAction("C3PO_SPEAK " + iter.next() , 1, 1);
+		}
+		msgHandle.getPublisher().sendAction("C3PO_SPEAK Thank you. have a nice day", 1, 1);
+		
 	}
+	
+	
 
 	@Override
 	public void update(Observable o, Object arg) {
@@ -172,6 +125,14 @@ public class Demo implements Observer{
 					CONTINUE_DIALOG = true;
 				} else if(command.compareTo("NEXT") == 0) {
 					NEXT = true;
+				} else if(command.compareTo("SET") == 0) {
+					
+					String var = st.nextToken();
+					System.out.println("var: " + var);
+					String value = st.nextToken();
+					System.out.println("Value: " + value);
+					variables.put(var, value);
+					System.out.println("Var: " + var + "  value :" + value);
 				}
 			}
 		}

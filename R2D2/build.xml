@@ -22,6 +22,7 @@
 		<pathelement path="${lib_dir}/jsapi.jar"/>
 		<pathelement path="${lib_dir}/en_us.jar"/>
 		<pathelement path="${lib_dir}/freetts.jar"/>
+		<pathelement path="${lib_dir}/leia.jar"/>
 	</path>
 	
 	<target name="all"

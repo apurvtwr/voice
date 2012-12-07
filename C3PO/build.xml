@@ -69,14 +69,14 @@
 	               includes="**/*.java">
 	            <classpath refid="libs"/>
 	        </javac>
-	        <jar destfile="${bin_dir}/c3po.jar"
+	        <jar destfile="${bin_dir}/talker.jar"
 			manifest="${src_dir}/MANIFEST.MF"
 	             basedir="${build_dir}"
 	             includes="**/*.*"
 	             compress="true"/>
 	</target>
 	<target name="run" depends="compile">
-		<java jar="${bin_dir}/c3po.jar" fork="true">
+		<java jar="${bin_dir}/talker.jar" fork="true">
 			<jvmarg value="-Xms400m"/>
 			<jvmarg value="-Xmx1500m"/>
 		</java>

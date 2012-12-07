@@ -1,0 +1,169 @@
+#############################################################################
+## Copyright (c) 1996, Carnegie Mellon University, Cambridge University,
+## Ronald Rosenfeld and Philip Clarkson
+## Version 3, Copyright (c) 2006, Carnegie Mellon University 
+## Contributors includes Wen Xu, Ananlada Chotimongkol, 
+## David Huggins-Daines, Arthur Chan and Alan Black 
+#############################################################################
+=============================================================================
+===============  This file was produced by the CMU-Cambridge  ===============
+===============     Statistical Language Modeling Toolkit     ===============
+=============================================================================
+This is a 3-gram language model, based on a vocabulary of 24 words,
+  which begins "</s>", "<s>", "AKSHAY"...
+This is a CLOSED-vocabulary model
+  (OOVs eliminated from training data and are forbidden in test data)
+Good-Turing discounting was applied.
+1-gram frequency of frequency : 21 
+2-gram frequency of frequency : 35 0 0 0 0 0 0 
+3-gram frequency of frequency : 48 0 0 0 0 0 0 
+1-gram discounting ratios : 0.95 
+2-gram discounting ratios : 
+3-gram discounting ratios : 
+This file is in the ARPA-standard format introduced by Doug Paul.
+
+p(wd3|wd1,wd2)= if(trigram exists)           p_3(wd1,wd2,wd3)
+                else if(bigram w1,w2 exists) bo_wt_2(w1,w2)*p(wd3|wd2)
+                else                         p(wd3|w2)
+
+p(wd2|wd1)= if(bigram exists) p_2(wd1,wd2)
+            else              bo_wt_1(wd1)*p_1(wd2)
+
+All probs and back-off weights (bo_wt) are given in log10 form.
+
+Data formats:
+
+Beginning of data mark: \data\
+ngram 1=nr            # number of 1-grams
+ngram 2=nr            # number of 2-grams
+ngram 3=nr            # number of 3-grams
+
+\1-grams:
+p_1     wd_1 bo_wt_1
+\2-grams:
+p_2     wd_1 wd_2 bo_wt_2
+\3-grams:
+p_3     wd_1 wd_2 wd_3 
+
+end of data mark: \end\
+
+\data\
+ngram 1=24
+ngram 2=36
+ngram 3=48
+
+\1-grams:
+-0.5673 </s>	-1.0263
+-0.5351 <s>	-1.3207
+-1.7014 AKSHAY	-0.3399
+-1.7014 ANAND	-0.4684
+-1.7014 APURV	-0.4684
+-1.7014 BHIKSHA	-0.4684
+-1.7014 GRACIA	-0.3399
+-1.7014 IS	-0.3399
+-1.7014 JOHN	-0.3399
+-1.7014 LEIBNY	-0.4684
+-1.7014 MALTO	0.0000
+-1.7014 MOHIT	-0.3399
+-1.7014 MY	-0.4684
+-1.7014 NAME	-0.4684
+-1.7014 NATHAN	-0.3399
+-1.7014 NUNDY	-0.3399
+-1.7014 PAOLA	-0.3399
+-1.7014 PIYUSH	-0.3399
+-1.7014 RAJ	-0.3399
+-1.7014 RITA	-0.4684
+-1.7014 SATHYAN	-0.3399
+-1.7014 SINGH	-0.3399
+-1.7014 SURAJIT	-0.4684
+-1.7014 TIWARI	-0.3399
+
+\2-grams:
+-0.0300 </s> <s> -0.1609
+-1.1614 <s> AKSHAY 0.1761
+-1.1614 <s> ANAND 0.1761
+-1.1614 <s> APURV 0.1761
+-1.1614 <s> BHIKSHA 0.1761
+-1.1614 <s> JOHN 0.1761
+-1.1614 <s> LEIBNY 0.1761
+-1.1614 <s> MOHIT 0.1761
+-1.1614 <s> MY 0.1761
+-1.1614 <s> NATHAN 0.1761
+-1.1614 <s> PAOLA 0.1761
+-1.1614 <s> PIYUSH 0.1761
+-1.1614 <s> RITA 0.1761
+-1.1614 <s> SATHYAN 0.1761
+-1.1614 <s> SURAJIT 0.1761
+-0.1761 AKSHAY </s> 0.8751
+-0.1761 ANAND MALTO -0.1639
+-0.1761 APURV TIWARI 0.1761
+-0.1761 BHIKSHA RAJ 0.1761
+-0.1761 GRACIA </s> 0.8751
+-0.1761 IS </s> 0.8751
+-0.1761 JOHN </s> 0.8751
+-0.1761 LEIBNY GRACIA 0.1761
+-0.1761 MOHIT </s> 0.8751
+-0.1761 MY NAME 0.1761
+-0.1761 NAME IS 0.1761
+-0.1761 NATHAN </s> 0.8751
+-0.1761 NUNDY </s> 0.8751
+-0.1761 PAOLA </s> 0.8751
+-0.1761 PIYUSH </s> 0.8751
+-0.1761 RAJ </s> 0.8751
+-0.1761 RITA SINGH 0.1761
+-0.1761 SATHYAN </s> 0.8751
+-0.1761 SINGH </s> 0.8751
+-0.1761 SURAJIT NUNDY 0.1761
+-0.1761 TIWARI </s> 0.8751
+
+\3-grams:
+-1.1461 </s> <s> AKSHAY 
+-1.1461 </s> <s> ANAND 
+-1.1461 </s> <s> BHIKSHA 
+-1.1461 </s> <s> JOHN 
+-1.1461 </s> <s> LEIBNY 
+-1.1461 </s> <s> MOHIT 
+-1.1461 </s> <s> MY 
+-1.1461 </s> <s> NATHAN 
+-1.1461 </s> <s> PAOLA 
+-1.1461 </s> <s> PIYUSH 
+-1.1461 </s> <s> RITA 
+-1.1461 </s> <s> SATHYAN 
+-1.1461 </s> <s> SURAJIT 
+-0.3010 <s> AKSHAY </s> 
+-0.3010 <s> ANAND MALTO 
+-0.3010 <s> APURV TIWARI 
+-0.3010 <s> BHIKSHA RAJ 
+-0.3010 <s> JOHN </s> 
+-0.3010 <s> LEIBNY GRACIA 
+-0.3010 <s> MOHIT </s> 
+-0.3010 <s> MY NAME 
+-0.3010 <s> NATHAN </s> 
+-0.3010 <s> PAOLA </s> 
+-0.3010 <s> PIYUSH </s> 
+-0.3010 <s> RITA SINGH 
+-0.3010 <s> SATHYAN </s> 
+-0.3010 <s> SURAJIT NUNDY 
+-0.3010 AKSHAY </s> <s> 
+-0.3010 ANAND MALTO </s> 
+-0.3010 APURV TIWARI </s> 
+-0.3010 BHIKSHA RAJ </s> 
+-0.3010 GRACIA </s> <s> 
+-0.3010 IS </s> <s> 
+-0.3010 JOHN </s> <s> 
+-0.3010 LEIBNY GRACIA </s> 
+-0.3010 MOHIT </s> <s> 
+-0.3010 MY NAME IS 
+-0.3010 NAME IS </s> 
+-0.3010 NATHAN </s> <s> 
+-0.3010 NUNDY </s> <s> 
+-0.3010 PAOLA </s> <s> 
+-0.3010 PIYUSH </s> <s> 
+-0.3010 RAJ </s> <s> 
+-0.3010 RITA SINGH </s> 
+-0.3010 SATHYAN </s> <s> 
+-0.3010 SINGH </s> <s> 
+-0.3010 SURAJIT NUNDY </s> 
+-0.3010 TIWARI </s> <s> 
+
+\end\

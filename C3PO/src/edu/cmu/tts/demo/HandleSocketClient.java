@@ -81,12 +81,14 @@ public class HandleSocketClient implements Observer {
 			server = new Server(controlSocket, dataSocket,voice);
     		Message message = (Message) msg;
     		if(message!=null) {
-	    		Header header = message.getHeader();
+	    		System.out.println(message);
+			
+			Header header = message.getHeader();
 	    		String data = message.getData();
 	    		StringTokenizer st = new StringTokenizer(data);
 	    		String tmp = st.nextToken();
 	    		String COMMAND = "C3PO_SPEAK";
-	    		if(tmp.compareTo(COMMAND) == 0) {
+	    		if(tmp.compareToIgnoreCase(COMMAND) == 0) {
 	    			if(header.getMessageType().compareTo(MessageType.ACTION) == 0) {
 	    			String action = "";
 	    			while(st.hasMoreTokens()) {
